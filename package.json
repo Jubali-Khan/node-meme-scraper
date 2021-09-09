@@ -10,6 +10,8 @@
     "@types/node": "^16.0.0",
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
+    "@types/request": "^2.48.7",
+    "@types/request-promise": "^4.1.48",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "@upleveled/eslint-config-upleveled": "1.15.4",
@@ -31,5 +33,10 @@
   "resolutions": {
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-testing-library": "4.6.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "image-downloader": "^4.0.3",
+    "request": "^2.88.2"
   }
 }
