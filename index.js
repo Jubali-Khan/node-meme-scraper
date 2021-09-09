@@ -1,7 +1,23 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const download = require('image-downloader');
+const fs = require('fs');
+const path = require('path');
 
+/* This section deletes the contents of the directory memes so that each time the index.js is ran on repl.it the memes are retrieved and fetched*/
+const directory = 'memes';
+
+fs.readdir(directory, (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join(directory, file), (err) => {
+      if (err) throw err;
+    });
+  }
+});
+
+/* This section retrieves the HTML and parses it to get the links in an array, which a for loop goes through value by value to download the images to /memes */
 request(
   'https://memegen-link-examples-upleveled.netlify.app/',
   (error, response, html) => {
