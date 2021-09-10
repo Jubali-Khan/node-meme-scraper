@@ -1,8 +1,8 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const download = require('image-downloader');
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 /* This section deletes the contents of the directory memes so that each time the index.js is ran on repl.it the memes are retrieved and fetched*/
 const directory = 'memes';
@@ -11,8 +11,8 @@ fs.readdir(directory, (err, files) => {
   if (err) throw err;
 
   for (const file of files) {
-    fs.unlink(path.join(directory, file), (err) => {
-      if (err) throw err;
+    fs.unlink(path.join(directory, file), (error) => {
+      if (error) throw err;
     });
   }
 });
@@ -28,7 +28,7 @@ request(
       /* use library's method to get the HTML */
       const doc = cheerio.load(html);
 
-      // Where the HTML is parsed
+      // Where the HTML is parsed:
       /* Iterate to add (using .push()) to the empty imgUrls array 10 times */
       /* What is iterated is the commnd to access a specific part of the HTML, namely the
       part where an anchor element is followed by an img element */
