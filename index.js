@@ -1,5 +1,5 @@
 const request = require('request');
-const https = require('https');
+const https = require('node:https');
 const cheerio = require('cheerio');
 const fs = require('node:fs');
 
