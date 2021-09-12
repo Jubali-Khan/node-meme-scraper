@@ -47,7 +47,6 @@ request(
               },
             );
             fileStream.close();
-            // console.log('Done!');
           });
         });
       }
